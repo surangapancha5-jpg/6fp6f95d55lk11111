@@ -21,13 +21,17 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '21'
+          java-version: '17'
 
       - name: Install Dependencies
         run: bun install
 
       - name: Build Web
         run: bun run build
+
+      - name: Install Capacitor
+        run: |
+          bun add @capacitor/core@6 @capacitor/cli@6 @capacitor/android@6
 
       - name: Setup Capacitor
         run: |
