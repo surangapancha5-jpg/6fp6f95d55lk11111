@@ -26,12 +26,15 @@ jobs:
       - name: Install Dependencies
         run: bun install
 
-      - name: Build Web
-        run: bun run build
+      - name: Fix TypeScript Version
+        run: bun add -d typescript@5.9.3
 
       - name: Install Capacitor
         run: |
           bun add @capacitor/core@6 @capacitor/cli@6 @capacitor/android@6
+
+      - name: Build Web
+        run: bun run build
 
       - name: Setup Capacitor
         run: |
