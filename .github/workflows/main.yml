@@ -1,6 +1,6 @@
 name: Build Android APK
 
-on:
+'on':
 workflow_dispatch:
 push:
 branches:
@@ -31,22 +31,20 @@ steps:
   - name: Build Web App
     run: npm run build -- --base=./
 
-  - name: Setup Capacitor
-    run: |
-      npm install @capacitor/core@6 @capacitor/cli@6 @capacitor/android@6
+  - name: Install Capacitor
+    run: npm install @capacitor/core@6 @capacitor/cli@6 @capacitor/android@6
 
-  - name: Create Capacitor Config
+  - name: Configure Capacitor
     run: |
       cat > capacitor.config.json <<'EOF'
       {
         "appId": "com.suranga.myapp",
         "appName": "My App",
-        "webDir": "dist",
-        "bundledWebRuntime": false
+        "webDir": "dist"
       }
       EOF
 
-  - name: Add Android Platform
+  - name: Add Android
     run: npx cap add android
 
   - name: Sync Android
@@ -61,6 +59,5 @@ steps:
   - name: Upload APK
     uses: actions/upload-artifact@v4
     with:
-      name: Android-APK
+      name: My-Android-APK
       path: android/app/build/outputs/apk/debug/*.apk
-      if-no-files-found: error
