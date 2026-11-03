@@ -1,0 +1,6 @@
+{
+  "name": "LK ONLINE",
+  "description": "Premium Sri Lankan Live Chat & WebRTC Calling platform with 2FA Authenticator verification, real-time Open Channel, and built-in sticker & emoji packs.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
